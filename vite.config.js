@@ -21,7 +21,6 @@ export default defineConfig({
   server: {
     port: 7777,
   },
-  base: '/portfolio/',
   plugins: [
     mdx({
       rehypePlugins: [[rehypeImgSize, { dir: 'public' }], rehypeSlug, rehypePrism],
@@ -30,7 +29,6 @@ export default defineConfig({
     }),
     remixCloudflareDevProxy(),
     remix({
-      basename: '/portfolio/',
       routes(defineRoutes) {
         return defineRoutes(route => {
           route('/', 'routes/home/route.js', { index: true });
